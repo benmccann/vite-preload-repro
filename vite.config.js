@@ -5,18 +5,15 @@ import { resolve } from 'path';
 const config = {
 	build: {
 		cssCodeSplit: true,
-		lib: {
-			entry: resolve('src/index.js'),
-			name: 'app', // this doesn't seem to do anything?
-			formats: ['es']
-		},
 		outDir: 'dist',
 		minify: false,
 		rollupOptions: {
+			input: resolve('src/index.js'),
 			output: {
 				entryFileNames: '[name]-[hash].js',
 				chunkFileNames: '[name]-[hash].js',
-				assetFileNames: '[name]-[hash][extname]'
+				assetFileNames: '[name]-[hash][extname]',
+				format: 'es'
 			}
 		}
 	}
